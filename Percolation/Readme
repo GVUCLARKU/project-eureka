@@ -1,1 +1,197 @@
 
+/******************************************************************************
+ *  Name: Giang Vu    
+ *  NetID:   gvu
+ *  Precept: CS160-Prof Green
+ *
+ *  Partner Name:    N/A
+ *  Partner NetID:   N/A
+ *  Partner Precept: N/A
+ * 
+ *  Operating system: Window 10
+ *  Compiler: BlueJ, cmd
+ *  Text editor / IDE: BlueJ
+ *
+ *  Have you taken (part of) this course before: No
+ *  Have you taken (part of) the Coursera course Algorithm, Part I: No
+ *
+ *  Hours to complete assignment (optional):
+ *
+ ******************************************************************************/
+
+
+/******************************************************************************
+ *  Describe how you implemented Percolation.java. How did you check
+ *  whether the system percolates?
+ *****************************************************************************/
+I modeled the NxN grid as a one Boolean array grid[][], with an extra
+ cell at the top and bottom to represent virtual top and bottom rows, another cell just
+formulate the virtual top to avoid backwash problem 
+If the cell was open, the Boolean value was true.
+I wrote a helper function Index(row,col) to convert row,col coordinates to the index of grid[][].
+
+I created a quickfind object with N^2 elements. When I opened a cell, I checked
+if the cells above, below, to the left, and to the right were open. 
+If any of the cells were open, I unioned them with the cell I was currently opening. 
+When drawn, if the cell was in the same quickfind object as the virtual top row,
+it was considered full. The system percolated when the virtual top row was in the
+same quickfind object as the virtual bottom row.
+
+
+/******************************************************************************
+ *  Using Percolation with QuickFindUF.java,  fill in the table below such that 
+ *  the N values are multiples of each other.
+
+ *  Give a formula (using tilde notation) for the running time (in seconds) of 
+ *  PercolationStats.java as a function of both N and T. Be sure to give both 
+ *  the coefficient and exponent of the leading term. Your coefficients should 
+ *  be based on empirical data and rounded to two significant digits, such as 
+ *  5.3*10^-8 * N^5.0 T^1.5.
+ *****************************************************************************/
+
+(keep T constant)
+
+ N          time (seconds)
+------------------------------
+100		0.025
+200		0.094
+400		0.573
+800		5.279
+1600		45.866
+	
+
+
+(keep N constant)
+
+ T          time (seconds)
+------------------------------
+100		0.43
+200		0.83
+400		1.47
+800		2.61
+1600		4.79
+
+
+running time as a function of N and T:  ~ N^3.3*T^0.9
+
+
+/******************************************************************************
+ *  Repeat the previous question, but use WeightedQuickUnionUF.java.
+ *****************************************************************************/
+
+(keep T constant)
+
+ N          time (seconds)
+------------------------------
+100		0.022
+200		0.05
+400		0.123
+800		0.486
+1600		1.693
+	
+
+
+(keep N constant)
+
+ T          time (seconds)
+------------------------------
+100		0.153
+200		0.276
+400		0.482
+800		0.716
+1600		1.333
+
+running time as a function of N and T:  ~ N^1.95*T^0.9
+
+/**********************************************************************
+ *  How much memory (in bytes) does a Percolation object use to store
+ *  an N-by-N grid? Use the 64-bit memory cost model from Section 1.4
+ *  of the textbook and use tilde notation to simplify your answer.
+ *  Briefly justify your answers.
+ *
+ *  Include the memory for all referenced objects (deep memory).
+ **********************************************************************/
+2d array: 4N^2 bytes
+2ints ~8bytes
+Quick Union: 8N bytes*2
+1 int: 4 bytes 
+
+=> Total: 4N^2 + 16N + 44 bytes
+
+
+
+
+
+
+
+/******************************************************************************
+ *  After reading the course collaboration policy, answer the
+ *  following short quiz. This counts for a portion of your grade.
+ *  Write down the answers in the space below.
+ *****************************************************************************/
+1.b
+2.c
+3.d
+
+1. How much help can you give a fellow student taking COS 226?
+(a) None. Only the preceptors and lab TAs can help.
+(b) You can discuss ideas and concepts but students can get help
+    debugging their code only from a preceptor, lab TA, or
+    student who has already passed COS 226.
+(c) You can help a student by discussing ideas, selecting data
+    structures, and debugging their code.
+(d) You can help a student by emailing him/her your code.
+
+2. What are the rules when partnering?
+ (a) You and your partner must both be present while writing code.
+     But after that only one person needs to do the analysis.
+ (b) You and your partner must both be present while writing code
+     and during the analysis, but, after that, only one person
+     needs to be present while submitting the code and the
+     readme.
+ (c) You and your partner must both be present while writing code,
+     during the analysis, and while submitting the code and the
+     readme. Failure to do so is a violation of the course
+     collaboration policy.
+
+3. For any programming assignment, I am permitted to use code that
+   I found on a website other than the COS 226 or algs4 website
+   (e.g., on GitHub or StackOverflow):
+ (a) Only when the online code was written by a person who does not
+     and did not go to Princeton.
+ (b) Only when the online code implemented different assignment
+     specifications than the ones I'm currently working on.
+ (c) Always, because online code is available to everyone.
+ (d) Never, because such websites are an impermissible "outside 
+     source".
+ 
+/******************************************************************************
+ *  Known bugs / limitations.
+ *****************************************************************************/
+
+Cannot run the compiler for PercolationVisualizer in command line to test.
+Every other thing worked fine and has been included using other IDE.
+
+
+/******************************************************************************
+ *  Describe whatever help (if any) that you received.
+ *  Don't include readings, lectures, and precepts, but do
+ *  include any help from people (including course staff, lab TAs,
+ *  classmates, and friends) and attribute them by name.
+ *****************************************************************************/
+	prof Li Han.
+
+/******************************************************************************
+ *  Describe any serious problems you encountered.                    
+ *****************************************************************************/
+
+	N/A
+
+
+/******************************************************************************
+ *  List any other comments here. Feel free to provide any feedback   
+ *  on how much you learned from doing the assignment, and whether    
+ *  you enjoyed doing it.                                             
+ *****************************************************************************/
+
+	N/a
