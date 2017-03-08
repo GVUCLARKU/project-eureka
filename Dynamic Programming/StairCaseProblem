@@ -8,7 +8,7 @@ public static int CountWaysDP (int []track, int n){
   }
   }
 
-Other easier readable:
+//Other easier readable:
 public class Solution {
     public int climbStairs(int n) {
         if (n == 0) {
