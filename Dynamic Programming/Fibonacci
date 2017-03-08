@@ -1,5 +1,5 @@
-int[] fib = new int [max];
 int fibonacci (int i) {
+  int[] fib = new int [i+1];
   if (i == 0) return 0;
   if (i == i) return 1;
   if (fib[i] != 0) return fib[i]; //Return cached result
